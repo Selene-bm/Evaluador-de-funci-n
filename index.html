@@ -27,31 +27,44 @@
         </p>
     </section>
 
-    <section class="grafico">
-        <h2>Gráfico de la Función:</h2>
-        <div id="chart_div"></div>
-    </section>
-
     <section class="entrada">
         <h2>Ingrese los valores:</h2>
         <form id="form" class="form-grid">
             <div class="form-left">
-                <label for="a">Coeficiente a:</label>
-                <input type="number" id="a" required>
-                <label for="b">Coeficiente b:</label>
-                <input type="number" id="b" required>
-                <label for="c">Coeficiente c:</label>
-                <input type="number" id="c" required>
-                <label for="d">Coeficiente d:</label>
-                <input type="number" id="d" required>
-                <label for="e">Coeficiente e:</label>
-                <input type="number" id="e" required>
+                <table>
+                    <tr>
+                        <th>Coeficiente A</th>
+                        <td><input type="number" id="a" required></td>
+                    </tr>
+                    <tr>
+                        <th>Coeficiente B</th>
+                        <td><input type="number" id="b" required></td>
+                    </tr>
+                    <tr>
+                        <th>Coeficiente C</th>
+                        <td><input type="number" id="c" required></td>
+                    </tr>
+                    <tr>
+                        <th>Coeficiente D</th>
+                        <td><input type="number" id="d" required></td>
+                    </tr>
+                    <tr>
+                        <th>Coeficiente E</th>
+                        <td><input type="number" id="e" required></td>
+                    </tr>
+                </table>
             </div>
             <div class="form-right">
-                <label for="xMin">Valor mínimo de X:</label>
-                <input type="number" id="xMin" required>
-                <label for="xMax">Valor máximo de X:</label>
-                <input type="number" id="xMax" required>
+                <table>
+                    <tr>
+                        <th>Valor mínimo de X</th>
+                        <td><input type="number" id="xMin" required></td>
+                    </tr>
+                    <tr>
+                        <th>Valor máximo de X</th>
+                        <td><input type="number" id="xMax" required></td>
+                    </tr>
+                </table>
             </div>
             <div class="form-submit">
                 <button type="submit">Procesar</button>
@@ -92,7 +105,7 @@
         </table>
     </section>
 
-    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
+

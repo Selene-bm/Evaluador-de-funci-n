@@ -14,7 +14,7 @@ header {
     color: white;
 }
 
-.funcion, .grafico, .entrada, .rango-x, .resultados, .tabla {
+.funcion, .entrada, .resultados, .tabla {
     background-color: #fff;
     margin: 20px auto;
     padding: 20px;
@@ -30,33 +30,65 @@ header {
     font-weight: bold;
 }
 
-/* Diseño del formulario con dos columnas */
+/* Diseño del formulario en dos columnas */
 .form-grid {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 40px;
     flex-wrap: wrap;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
 }
 
+/* Ajuste para las tablas dentro del formulario */
 .form-left, .form-right {
-    display: flex;
-    flex-direction: column;
     width: 45%;
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro de la tabla */
 }
 
-/* Estilizar etiquetas, inputs y botones */
-form label, form input {
-    display: block;
-    margin: 10px auto;
+.form-left table, .form-right table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-input {
+/* Alineación de las celdas */
+.form-left th, .form-right th {
+    background-color: #f8bbd0;
     padding: 8px;
+    text-align: left;
+    width: 60%;
+}
+
+/* Ajuste para las celdas de entrada */
+.form-left td, .form-right td {
+    padding: 8px;
+    width: 40%;
+}
+
+/* Corrección del tamaño de los inputs */
+input {
+    width: 100%; /* Se ajusta al tamaño de la celda */
+    padding: 5px;
     border: 1px solid #d81b60;
     border-radius: 5px;
-    width: 80%;
     text-align: center;
+    box-sizing: border-box; /* Evita que el padding afecte el ancho total */
+}
+
+/* Centrar mejor la tabla de valores de X */
+.form-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Botón centrado */
+.form-submit {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
 }
 
 button {
@@ -73,24 +105,18 @@ button:hover {
     background-color: #ad1457;
 }
 
-/* Centrar el botón de enviar */
-.form-submit {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+/* Centrar tablas de resultados y valores generados */
+.resultados table, .tabla table {
+    margin: auto;
+    width: 60%;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.resultados th, .tabla th {
+    background-color: #f8bbd0;
 }
 
 th, td {
     border: 1px solid #d81b60;
     padding: 8px;
     text-align: center;
-}
-
-th {
-    background-color: #f8bbd0;
 }
