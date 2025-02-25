@@ -30,7 +30,23 @@ header {
     font-weight: bold;
 }
 
-form label, form input, form button {
+/* Diseño del formulario con dos columnas */
+.form-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-left, .form-right {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+/* Estilizar etiquetas, inputs y botones */
+form label, form input {
     display: block;
     margin: 10px auto;
 }
@@ -55,6 +71,13 @@ button {
 
 button:hover {
     background-color: #ad1457;
+}
+
+/* Centrar el botón de enviar */
+.form-submit {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
 }
 
 table {
