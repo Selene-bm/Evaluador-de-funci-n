@@ -14,6 +14,10 @@ header {
     color: white;
 }
 
+.nombres {
+    font-weight: bold;
+}
+
 .funcion, .entrada, .resultados, .tabla {
     background-color: #fff;
     margin: 20px auto;
