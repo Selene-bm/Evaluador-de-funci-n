@@ -21,7 +21,7 @@
         <h2>Función a Evaluar:</h2>
         <p class="latex-funcion">
             $$
-            f(x) = \frac{\sin(Ax) + \cos(Bx)}{\sqrt{C + x^2 + 1}} 
+            f(x) = \frac{\sin(Ax) + \cos(Bx)}{\sqrt{|C + x^2 + 1|}} 
             + \frac{\sin(Dx)}{\sqrt{|E| + x^2 + 1}} 
             + \frac{\cos(x)}{\sqrt{x^2 + 2}}
             $$
@@ -35,23 +35,23 @@
                 <table>
                     <tr>
                         <th>Coeficiente A</th>
-                        <td><input type="number" id="a" required></td>
+                        <td><input type="number" step="0.1" id="a" value="10" required></td>
                     </tr>
                     <tr>
                         <th>Coeficiente B</th>
-                        <td><input type="number" id="b" required></td>
+                        <td><input type="number" step="0.1" id="b" value="3" required></td>
                     </tr>
                     <tr>
                         <th>Coeficiente C</th>
-                        <td><input type="number" id="c" required></td>
+                        <td><input type="number" step="0.1" id="c" value="34" required></td>
                     </tr>
                     <tr>
                         <th>Coeficiente D</th>
-                        <td><input type="number" id="d" required></td>
+                        <td><input type="number" step="0.1" id="d" value="0" required></td>
                     </tr>
                     <tr>
                         <th>Coeficiente E</th>
-                        <td><input type="number" id="e" required></td>
+                        <td><input type="number" step="0.1" id="e" value="-2" required></td>
                     </tr>
                 </table>
             </div>
@@ -59,11 +59,11 @@
                 <table>
                     <tr>
                         <th>Valor mínimo de X</th>
-                        <td><input type="number" id="xMin" required></td>
+                        <td><input type="number" id="xMin" value="-3" required></td>
                     </tr>
                     <tr>
                         <th>Valor máximo de X</th>
-                        <td><input type="number" id="xMax" required></td>
+                        <td><input type="number" id="xMax" value="10" required></td>
                     </tr>
                 </table>
             </div>
@@ -114,7 +114,7 @@
         let chartInstance = null; // Variable global para almacenar la instancia del gráfico
     
         function funcionMatematica(X, A, B, C, D, E) {
-            let fraccion_1 = (Math.sin(A * X) + Math.cos(B * X)) / Math.sqrt(C + Math.pow(X, 2) + 1); 
+            let fraccion_1 = (Math.sin(A * X) + Math.cos(B * X)) / Math.sqrt(Math.abs(C + Math.pow(X, 2) + 1)); 
             let fraccion_2 = (Math.sin(D * X)) / (Math.sqrt(Math.abs(E) + Math.pow(X, 2) + 1));
             let fraccion_3 = Math.cos(X) / Math.sqrt(Math.pow(X, 2) + 2);
             return fraccion_1 + fraccion_2 + fraccion_3;
@@ -136,10 +136,8 @@
                 valores_y.push(funcionMatematica(i, A, B, C, D, E).toFixed(4));
             }
             
-            for(let i = 0; i<= valores_y.length; i++){
-                if( valores_y[i] >= -0.009 && valores_y[i] <= 0.009) {
-                    cortes_eje.push(valores_y[i]);
-                }
+            for(let i = 0; i<= valores_y.length + 1; i++){
+                // Para calcular los cortes debemos hacerlo de modo que los hallemos si vemos que un valor que era negativo paso a positivo, y visceversa.
             }
 
             document.getElementById("yMinResultado").textContent = Math.min(...valores_y);
@@ -177,10 +175,10 @@
                     datasets: [{
                         label: 'f(x)',
                         data: valores_y,  // Eje Y
-                        borderColor: 'blue',
+                        borderColor: 'red',
                         borderWidth: 2,
                         fill: true,
-                        pointRadius: 0,  // Sin puntos en la línea
+                        pointRadius: 1,  // Sin puntos en la línea
                     }]
                 },
                 options: {
